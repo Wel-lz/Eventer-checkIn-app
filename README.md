@@ -235,7 +235,6 @@
    2. Download request and get link
       1. Click "Download" and select a platform<br>![img_2.png](img/img_2.png)
       2. Receive an email with a link and installation instructions<br>![img_3.png](img/img_3.png)<br>![img_4.png](img/img_4.png)
-   3. Installation
 
 ## Known bugs
 ### &emsp;Android app
