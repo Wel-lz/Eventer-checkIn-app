@@ -1,4 +1,4 @@
-# [📘 Русский](#)
+# [📘 Русский](https://github.com/Wel-lz/Eventer-checkIn-app/blob/main/README_ru.md)
 
 # Eventer checkin app
 
