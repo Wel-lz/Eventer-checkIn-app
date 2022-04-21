@@ -1,33 +1,39 @@
-# [📘 Русский](#)
+# [📘 English](#)
 
 # Eventer checkin app
 
-## _App for WordPress plugin Eventer_
-#### &emsp; [Developed on Thunkable](https://thunkable.com)
-#### &emsp; Plugin author [Imithemes](https://eventer.imithemes.com/)
+## _Мобильное приложение для WordPress плагина Eventer_
 
+#### &emsp; [Разработано на Thunkable](https://thunkable.com)
 
-## Features
+#### &emsp; Автор плагина [Imithemes](https://eventer.imithemes.com/)
 
-- Get booking information by booking number
-- Get information about each ticket in the booking
-- Registration of individual tickets
-- Ability to self-customize the application (Thunkable)
-- English&Russian localization
+&emsp;&emsp;*Пожалуйста не злитесь за часть кода :)*
 
-## In future versions
-- Registration of the entire booking
-- Ability to work with the server API via the insecure http protocol (optional)
-- Ability to cancel Checkin for an individual ticket
-- Breaking the line with the type of ticket in the booking into lines with separate tickets (1 each) for a completely separate Checkin
-## Installation
+## Функции
 
-#### Edit File `wp-content/plugins/eventer/front/eventer_rest_endpoints.php`
+- Получить информацию о бронировании по номеру бронирования
+- Получить информацию о каждом билете в бронировании
+- Регистрация отдельных типов билетов
+- Возможность работы с серверным API по незащищенному протоколу http (опционально)
+- Возможность самостоятельной кастомизации приложения (Thunkable)
+- Регистрация всего бронирования целиком
 
-> The modified lines are wrapped in region mod/mod_*
+## В следующих версиях
+
+- Английская локализация
+- Возможность отменить Checkin для отдельного билета
+- Разбиение строки с типом билета в бронировании на строки с отдельными билетами (по 1 шт.) для полностью отдельного
+  Checkin'а
+
+## Установка
+
+#### Модернизировать файл `wp-content/plugins/eventer/front/eventer_rest_endpoints.php`
+
+> Измененные строки заключены в region mod/mod_*
 
 <details>
-   <summary>Function eventer_application_scan_events($request = null)</summary>
+  &emsp;<summary>Функция eventer_application_scan_events($request = null)</summary>
 
     function eventer_application_scan_events($request = null)
     {
@@ -122,10 +128,11 @@
     
         return rest_ensure_response($response);
     }
+
 </details>
 
 <details>
-  <summary>Function eventer_application_checkin_events($request = null)</summary>
+  <summary>Функция eventer_application_checkin_events($request = null)</summary>
 
     function eventer_application_checkin_events($request = null)
     {
@@ -213,40 +220,56 @@
 
 </details>
 
+## Установка
+
 ### &emsp;Android
-#### &emsp;&emsp;Download [last release](#)
 
-&emsp;&emsp;**or**
-[**Install from source**](#source)
+#### &emsp;&emsp;Скачайте [последний релиз](#)
 
+&emsp;&emsp;&emsp;**или**
+
+1. Откройте исходник на Thunkable - [link](#исходник)
+2. Настройте проект
+    1. Название/описание/иконка/тд...
+    2. Запрос на скачивание и получение ссылки
+    3. Установка
+3. PROFIT!!!
 
 ### &emsp;iOS
-> iOS and Thunkable restrictions prevent you from getting the setup file. To obtain the application, you must independently request and receive a download link on the Thunkable website
 
-&emsp;&emsp;[**Install from source**](#source)
+> Из-за ограничений iOS и Thunkable для получения приложения требуется самостоятельно запросить и получить ссылку для скачивания на сайте Thunkable
 
+1. Откройте исходник на Thunkable - [link](#исходник)
+2. Настройте проект
+    1. Название/описание/иконка/тд...
+    2. Запрос на скачивание и получение ссылки
+    3. Установка
+3. PROFIT!!!
 
-## Source
-1. Open [source](https://x.thunkable.com/projectPage/626133ba03db8500120752f9) at Thunkable
-1. Set up a project
-   1. Title/description/icon/etc...
-      1. Click on the project<br>![img.png](img/img.png)
-      2. Enter the data<br>![img_1.png](img/img_1.png)
-   2. Download request and get link
-      1. Click "Download" and select a platform<br>![img_2.png](img/img_2.png)
-      2. Receive an email with a link and installation instructions<br>![img_3.png](img/img_3.png)<br>![img_4.png](img/img_4.png)
-   3. Installation
+# Исходник
 
-## Known bugs
+&emsp; 1. Перейти на сайт [Thunkable](https://x.thunkable.com/projectPage/6259d21b8502730011d5c6a8)
+
+&emsp; 7. Кликнуть Copy Project
+
+![img_1.png](img_1.png)
+
+## Особенности и условности
+
+## Известные баги
+
 ### &emsp;Android app
 
-
 ### &emsp;iOS app
-- On iOS versions of the application, white stripes are noticed on the top and bottom of the application. Tested on iPhone 13 (fix - not found)
-- On iOS versions of the application, a bug was noticed in displaying the ticket panel (it does not critically affect the use). Tested on iPhone 13 (fix - not found)
+
+- На iOS версиях приложения замечены белые полосы сверху и снизу приложения. Проверено на iPhone 13 (фикс - не найден)
+- На iOS версиях приложения замечен баг отображения панели билетов (не критично влияет на использование). Проверено на
+  iPhone 13 (фикс - не найден)
 
 ### &emsp;Плагин eventer
-- Basically, the eventer plugin does not require an API key inside requests, only inside its application (fix - ?. Perhaps I will add protection of requests with an API key in future versions)
-- There is a ticket cart bug due to which tickets are duplicated/disappeared in the booking (fixed - not found)
-- Tickets are not added to the basket, the checkout tab does not go (fixed - changing the theme of the site)
-- Error opening (empty tab) booking (fixed - reloading the page)
+
+- Базово плагин eventer не требует API ключ внутри запросов, только внутри своего приложения (фикс - ?. Возможно добавлю
+  защиту запросов API ключом в следующих версиях)
+- Существует баг корзины билетов из-за которого дублируются/исчезают билеты в бронировании (фикс - не найден)
+- Не добавляются билеты в корзину не переходит вкладку оформления заказа (фикс - смена темы сайта)
+- Ошибка открытия (пустая вкладка) оформления бронирования (фикс - перезагрузка страницы)
