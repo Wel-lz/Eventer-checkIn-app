@@ -20,6 +20,7 @@
 - Ability to work with the server API via the insecure http protocol (optional)
 - Ability to cancel Checkin for an individual ticket
 - Breaking the line with the type of ticket in the booking into lines with separate tickets (1 each) for a completely separate Checkin
+
 ## Installation
 
 #### Edit File `wp-content/plugins/eventer/front/eventer_rest_endpoints.php`
@@ -218,7 +219,6 @@
 
 &emsp;&emsp;**or**
 [**Install from source**](#source)
-
 
 ### &emsp;iOS
 > iOS and Thunkable restrictions prevent you from getting the setup file. To obtain the application, you must independently request and receive a download link on the Thunkable website
