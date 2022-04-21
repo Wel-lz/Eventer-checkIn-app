@@ -227,7 +227,7 @@
 
 
 ## Исходник
-1. Откройте [исходник](https://x.thunkable.com/projectPage/626133ba03db8500120752f9) на Thunkable
+1. Откройте [исходник](https://x.thunkable.com/projectPage/626118094be1eb00112ea4e8) на Thunkable
 1. Настройте проект
    1. Название/описание/иконка/тд...
       1. Кликнуть на проект<br>![img.png](img/img.png)
