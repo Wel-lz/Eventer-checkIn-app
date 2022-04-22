@@ -215,7 +215,7 @@
 </details>
 
 ### &emsp;Android
-#### &emsp;&emsp;Download [last release](#)
+#### &emsp;&emsp;Download [last release](https://github.com/Wel-lz/Eventer-checkIn-app/releases/latest)
 
 &emsp;&emsp;**or**
 [**Install from source**](#source)
@@ -241,10 +241,9 @@
 
 
 ### &emsp;iOS app
-- On iOS versions of the application, white stripes are noticed on the top and bottom of the application. Tested on iPhone 13 (fix - not found)
 - On iOS versions of the application, a bug was noticed in displaying the ticket panel (it does not critically affect the use). Tested on iPhone 13 (fix - not found)
 
-### &emsp;Плагин eventer
+### &emsp;Plugin eventer
 - Basically, the eventer plugin does not require an API key inside requests, only inside its application (fix - ?. Perhaps I will add protection of requests with an API key in future versions)
 - There is a ticket cart bug due to which tickets are duplicated/disappeared in the booking (fixed - not found)
 - Tickets are not added to the basket, the checkout tab does not go (fixed - changing the theme of the site)
