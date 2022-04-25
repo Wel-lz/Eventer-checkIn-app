@@ -37,33 +37,35 @@ function eventer_application_scan_events($request = null)
             foreach ($tickets as $ticket) {
                 $event_woo = $ticket['event'];
                 $date_woo = $ticket['date'];
-
                 if ($event_woo == $event && date_i18n("Y-m-d", strtotime($date)) == date_i18n("Y-m-d", $date_woo)) {
                     $woo = "1";
                     break;
                 }
-                $test = (isset($parameters['test'])) ? $parameters['test'] : '';
-                if ($test != "") {
+# region mod
+                $mod = (isset($parameters['mod'])) ? $parameters['mod'] : '';
+                if ($mod != "") {
                     $woo = "2";
                     break;
                 }
+# endregion
             }
         }
+# region mod_scan
         if ($woo == "2") {
             $tickets_info = [];
             foreach ($tickets as $ticket) {
                 if (!in_array($ticket['event'], array_keys($tickets_info))) {
                     $tickets_info[$ticket['event']] = [];
                 }
-                //
-                //$get_key = get_option('eventer-android-app-api-key');
+                // ToDo API Key Validation
+                // $get_key = get_option('eventer-android-app-api-key');
                 //
                 $tickets_info[$ticket['event']][] = [
                     'ticket_id' => $ticket['id'],
-                    'event_name' => get_the_title($ticket['event']),
+                    'event_name' => htmlspecialchars_decode(get_the_title($ticket['event'])),
                     'ticket_type' => $ticket['type'],
-                    'ticket_name' => $ticket['ticket'],
-                    'ticket_date' => date('d-m-Y', $ticket['date']),
+                    'ticket_name' => htmlspecialchars_decode($ticket['ticket']),
+                    'ticket_date' => date('d-m-Y', $ticket['date']), // edit this line if you want month-day-year format to this 'ticket_date' => date('m-d-Y', $ticket['date']),
                     'quantity' => $ticket['quantity'],
                     'ckechin' => $ticket['checkin']
                 ];
@@ -77,6 +79,7 @@ function eventer_application_scan_events($request = null)
                 'tickets_data' => $tickets_info
             );
         } elseif ($woo == "1") {
+# endregion
             $eventers = array('ID' => $ticket_id, 'Title' => get_the_title($event), 'Date' => date_i18n("Y-m-d", strtotime($date)), 'name' => $username, 'email' => $registrant_email, "status" => $status, "amount" => $amount);
         } elseif ($event_date == date_i18n('Y-m-d', strtotime($date)) && $event_id == $event) {
             $eventers = array('ID' => $ticket_id, 'Title' => get_the_title($event), 'Date' => date_i18n("Y-m-d", strtotime($date)), 'name' => $username, 'email' => $registrant_email, "status" => $status, "amount" => $amount);
@@ -105,7 +108,7 @@ function eventer_application_checkin_events($request = null)
         $user_system = unserialize($registrants->user_system);
         $tickets = (isset($user_system['tickets'])) ? $user_system['tickets'] : array();
         if (!empty($tickets)) {
-            #region mod
+#region mod_checkin
             if (isset($parameters['mod'])) {
                 $id_tickets_to_checkin = (isset($parameters['id_tickets_to_checkin'])) ? $parameters['id_tickets_to_checkin'] : '';
                 if ($id_tickets_to_checkin != '') {
@@ -135,7 +138,7 @@ function eventer_application_checkin_events($request = null)
                     }
                 }
             } else {
-                #endregion
+#endregion
                 foreach ($tickets as $ticket) {
                     $check_checkin_status = (isset($ticket['checkin'])) ? $ticket['checkin'] : '';
                     $ticket['checkin'] = $ticket['checkin_date'] = '';
@@ -155,9 +158,9 @@ function eventer_application_checkin_events($request = null)
                 } elseif ($check_checkin_status != '') {
                     $msg = "This ticket is already checked in";
                 }
-                # region mod end bracket
+# region mod_end_bracket
             }
-            # endregion
+# endregion
         } else {
             $msg = "It seems the ticket is not related to the details you submiited above.";
         }
