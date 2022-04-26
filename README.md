@@ -241,8 +241,8 @@
 
 
 ### &emsp;iOS app
-- On iOS, the keyboard overlaps the input field. Displays normally after minimizing and maximizing the application (fix - not found)
-- On iOS versions of the application, a bug was noticed in displaying the ticket panel (it does not critically affect the use). Tested on iPhone 13 (fix - partial (v1.1))
+- On iOS, the keyboard overlaps the input field. Displays normally after minimizing and maximizing the application (fix - partial (v1.1))
+- On iOS versions of applications, white bars on top and understanding of applications are described. Tested on iPhone 13 (fix - partial (v1.1))
 
 ### &emsp;Plugin eventer
 - Basically, the eventer plugin does not require an API key inside requests, only inside its application (fix - ?. Perhaps I will add protection of requests with an API key in future versions)
